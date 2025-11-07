@@ -1,16 +1,34 @@
-import { assets } from "./assets/assets/frontend_assets/assests";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import {
+  About,
+  Cart,
+  Collections,
+  Contact,
+  Home,
+  Login,
+  Orders,
+  PlaceOrder,
+  Products,
+} from "./pages";
 
 function App() {
   return (
-    <>
-      <div className="p-5 flex flex-col justify-center items-center gap-3">
-        <h1 className="text-3xl font-bold text-red-700">Choudhary & Sons</h1>
-        <div className="w-52 aspect-square transition-all duration-300 ease-in-out border-0 px-2 py-1 flex flex-col hover:border-2 hover:border-gray-400">
-          <img src={assets.p_img3} className="w-full h-full object-cover rounded-md" alt="" />
-          <p>Greate sofa</p>
-        </div>
-      </div>
-    </>
+    <div className="w-full max-w-[1480px] mx-auto p-2">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/place-order" element={<PlaceOrder />} />
+          <Route path="/products/:productId" element={<Products />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/collections" element={<Collections />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 
